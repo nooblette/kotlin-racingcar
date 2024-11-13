@@ -1,5 +1,11 @@
 package calculator
 
+import calculator.enum.Sign
+import calculator.enum.Sign.ADD
+import calculator.enum.Sign.DIVIDE
+import calculator.enum.Sign.MULTIPLY
+import calculator.enum.Sign.SUBTRACT
+
 class StringCalculator : Calculator<String?> {
     override fun calculate(tokens: String?): Double {
         if (tokens?.isBlank() != false) {
@@ -9,7 +15,7 @@ class StringCalculator : Calculator<String?> {
         // 초기화
         val tokenList = tokens.split(" ")
 
-        // 연산 결화 반환
+        // 연산 결과 반환
         return compute(tokenList = tokenList)
     }
 
@@ -19,40 +25,29 @@ class StringCalculator : Calculator<String?> {
 
         // 주어진 문자열을 순회하며 연산
         for (i in 1..<tokenList.size step 2) {
-            val sign = tokenList[i]
-            val number = tokenList[i + 1].toDouble()
-
-            result = calculateByToken(result = result, sign = sign, number = number)
+            val sign = Sign.getSignByString(tokenList[i]) ?: throw IllegalArgumentException("사칙연산 기호가 아닙니다.")
+            result = calculateByToken(result = result, sign = sign, number = tokenList[i + 1].toDouble())
         }
         return result
     }
 
     private fun calculateByToken(
         result: Double,
-        sign: String,
+        sign: Sign,
         number: Double,
     ): Double {
         // 연산 기호별로 계산
-        if (sign == "+") {
-            return result + number
-        }
+        when (sign) {
+            ADD -> return result + number
+            SUBTRACT -> return result - number
+            MULTIPLY -> return result * number
+            DIVIDE -> {
+                if (number == 0.0) {
+                    throw IllegalArgumentException("0으로 나눌 수 없습니다.")
+                }
 
-        if (sign == "-") {
-            return result - number
-        }
-
-        if (sign == "*") {
-            return result * number
-        }
-
-        if (sign == "/") {
-            if (number == 0.0) {
-                throw IllegalArgumentException("0으로 나눌 수 없습니다.")
+                return result / number
             }
-
-            return result / number
         }
-
-        throw IllegalArgumentException("사칙연산 기호가 아닙니다.")
     }
 }
