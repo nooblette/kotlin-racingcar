@@ -8,7 +8,7 @@ import calculator.enum.Sign.SUBTRACT
 
 class StringCalculator : Calculator<String?> {
     override fun calculate(tokens: String?): Double {
-        require(!tokens.isNullOrBlank()) { "입력값이 비어있습니다." }
+        requireNotNull(tokens) { "입력값이 비어있습니다." }
 
         // 초기화
         val tokenList = tokens.split(" ")
