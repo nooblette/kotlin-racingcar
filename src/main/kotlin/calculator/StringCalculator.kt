@@ -38,15 +38,15 @@ class StringCalculator : Calculator<String?> {
     ): Double {
         // 연산 기호별로 계산
         when (sign) {
-            ADD -> return result + number
-            SUBTRACT -> return result - number
-            MULTIPLY -> return result * number
+            ADD -> return ADD.operation(result, number)
+            SUBTRACT -> return SUBTRACT.operation(result, number)
+            MULTIPLY -> return MULTIPLY.operation(result, number)
             DIVIDE -> {
                 if (number == 0.0) {
                     throw IllegalArgumentException("0으로 나눌 수 없습니다.")
                 }
 
-                return result / number
+                return DIVIDE.operation(result, number)
             }
         }
     }

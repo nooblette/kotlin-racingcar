@@ -1,5 +1,6 @@
 package calculator
 
+import calculator.enum.Sign
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
@@ -33,5 +34,29 @@ class StringCalculatorTest {
     fun `계산 성공`() {
         assertThat(StringCalculator().calculate("2 + 3 * 4 / 2"))
             .isEqualTo(10.0)
+    }
+
+    @Test
+    fun `덧셈 연산 성공 테스트`() {
+        assertThat(Sign.ADD.operation(3.0, 2.0))
+            .isEqualTo(5.0)
+    }
+
+    @Test
+    fun `뺄셈 연산 성공 테스트`() {
+        assertThat(Sign.SUBTRACT.operation(3.0, 2.0))
+            .isEqualTo(1.0)
+    }
+
+    @Test
+    fun `곱셈 연산 성공 테스트`() {
+        assertThat(Sign.MULTIPLY.operation(3.0, 2.0))
+            .isEqualTo(6.0)
+    }
+
+    @Test
+    fun `나눗셈 연산 성공 테스트`() {
+        assertThat(Sign.DIVIDE.operation(3.0, 2.0))
+            .isEqualTo(1.5)
     }
 }

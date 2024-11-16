@@ -1,12 +1,13 @@
 package calculator.enum
 
 enum class Sign(
-    val sign: String,
+    private val sign: String,
+    val operation: (Double, Double) -> Double,
 ) {
-    ADD("+"),
-    SUBTRACT("-"),
-    MULTIPLY("*"),
-    DIVIDE("/"),
+    ADD("+", { x, y -> x + y }),
+    SUBTRACT("-", { x, y -> x - y }),
+    MULTIPLY("*", { x, y -> x * y }),
+    DIVIDE("/", { x, y -> x / y }),
     ;
 
     companion object {
