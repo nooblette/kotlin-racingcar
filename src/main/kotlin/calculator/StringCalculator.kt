@@ -25,7 +25,7 @@ class StringCalculator : Calculator<String?> {
 
         // 주어진 문자열을 순회하며 연산
         for (i in 1..<tokenList.size step 2) {
-            val sign = Sign.getSignByString(tokenList[i]) ?: throw IllegalArgumentException("사칙연산 기호가 아닙니다.")
+            val sign = Sign.getSignByString(tokenList[i])
             result = calculateByToken(result = result, sign = sign, number = tokenList[i + 1].toDouble())
         }
         return result

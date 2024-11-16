@@ -11,9 +11,9 @@ enum class Sign(
     ;
 
     companion object {
-        fun getSignByString(sign: String): Sign? =
+        fun getSignByString(sign: String): Sign =
             entries
                 .filter { it.sign == sign }
-                .getOrNull(0)
+                .getOrElse(0) { throw IllegalArgumentException("사칙연산 기호가 아닙니다.") }
     }
 }
