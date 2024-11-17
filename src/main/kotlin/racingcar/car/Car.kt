@@ -3,6 +3,11 @@ package racingcar.car
 class Car(
     val distance: Int = 1,
 ) {
-    // 이동 거리를 1 증가한다.
-    fun increment(): Car = Car(distance + 1)
+    // 값이 4 이상인 경우 자동차가 한 칸 전진한다.
+    fun move(value: Int): Car =
+        if (value >= 4) {
+            Car(distance + 1)
+        } else {
+            Car(distance)
+        }
 }
