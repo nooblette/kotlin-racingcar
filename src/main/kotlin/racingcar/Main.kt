@@ -5,7 +5,7 @@ import racingcar.view.InputView
 import racingcar.view.ResultView
 
 fun main() {
-    val raceClient = RaceClient(InputView(), ResultView())
+    val raceClient = RaceClient(InputView, ResultView)
 
     // 자동차 경주 시작
     raceClient.startRace()
