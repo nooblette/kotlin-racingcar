@@ -23,10 +23,19 @@ class RaceClient {
 
         // 경주 서비스 실행
         ResultView.printStart()
-        raceService.execute(
-            tryTime = tryTime,
-            onResult = ResultView::printResult,
-            randomNumbers = List(tryTime) { RandomNumbers(carCount) },
+        val raceResult =
+            raceService.execute(
+                tryTime = tryTime,
+                onResult = ResultView::printResult,
+                randomNumbers = List(tryTime) { RandomNumbers(carCount) },
+            )
+
+        // 경주 결과 중 우승자를 찾는다.
+        ResultView.printWinner(
+            raceResult
+                .getWinners()
+                .list
+                .joinToString { it.name },
         )
     }
 }

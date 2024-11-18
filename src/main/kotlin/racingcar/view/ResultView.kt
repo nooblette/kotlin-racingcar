@@ -14,4 +14,8 @@ object ResultView {
         cars.list.forEach { car -> println("${car.name} : ${PRINT_EXPRESSION.repeat(car.distance)}") }
         println()
     }
+
+    fun printWinner(winner: String) {
+        println("${winner}가 최종 우승했습니다.")
+    }
 }
