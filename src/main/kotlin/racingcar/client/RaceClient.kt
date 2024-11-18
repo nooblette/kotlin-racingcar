@@ -7,26 +7,23 @@ import racingcar.service.RaceService
 import racingcar.view.InputView
 import racingcar.view.ResultView
 
-class RaceClient(
-    private val inputView: InputView,
-    private val resultView: ResultView,
-) {
+class RaceClient {
     fun startRace() {
         // 자동차 대수 입력 받기
-        val carCount = inputView.inputCarCount()
+        val carCount = InputView.inputCarCount()
 
         // 시도 횟수 입력 받기
-        val tryTime = inputView.inputTryTime()
+        val tryTime = InputView.inputTryTime()
 
         // 입력받은 carCount만큼 자동차 목록을 갖는 race 객체 생성
         val race = Race(cars = Cars(carCount))
         val raceService = RaceService(race)
 
         // 경주 서비스 실행
-        resultView.printStart()
+        ResultView.printStart()
         raceService.execute(
             tryTime = tryTime,
-            onResult = resultView::printResult,
+            onResult = ResultView::printResult,
             randomNumbers = List(tryTime) { RandomNumbers(carCount) },
         )
     }
