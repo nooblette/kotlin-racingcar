@@ -11,7 +11,7 @@ class RaceTest {
     private var defaultDistance = 2
     private var carCount = 3
 
-    private val race = Race(Cars(List(carCount) { Car(defaultDistance) }))
+    private val race = Race(Cars(List(carCount) { Car(distance = defaultDistance) }))
 
     @Test
     fun `모두 이동하는 경우`() {
