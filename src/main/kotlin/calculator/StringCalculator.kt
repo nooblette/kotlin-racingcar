@@ -39,13 +39,7 @@ class StringCalculator : Calculator<String?> {
             ADD -> return ADD.operation(result, number)
             SUBTRACT -> return SUBTRACT.operation(result, number)
             MULTIPLY -> return MULTIPLY.operation(result, number)
-            DIVIDE -> {
-                if (number == 0.0) {
-                    throw IllegalArgumentException("0으로 나눌 수 없습니다.")
-                }
-
-                return DIVIDE.operation(result, number)
-            }
+            DIVIDE -> return DIVIDE.operation(result, number)
         }
     }
 }

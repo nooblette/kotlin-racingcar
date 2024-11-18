@@ -59,4 +59,10 @@ class StringCalculatorTest {
         assertThat(Sign.DIVIDE.operation(3.0, 2.0))
             .isEqualTo(1.5)
     }
+
+    @Test
+    fun `0으로 나눗셈 연산을 시도하는 경우 예외를 던진다`() {
+        assertThatThrownBy { (Sign.DIVIDE.operation(2.0, 0.0)) }
+            .isInstanceOf(IllegalArgumentException::class.java)
+    }
 }
