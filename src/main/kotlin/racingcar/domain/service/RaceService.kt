@@ -1,8 +1,8 @@
-package racingcar.service
+package racingcar.domain.service
 
-import racingcar.car.Cars
-import racingcar.race.Race
-import racingcar.randomnumber.RandomNumbers
+import racingcar.domain.car.Cars
+import racingcar.domain.race.Race
+import racingcar.domain.randomnumber.RandomNumbers
 
 class RaceService(
     val race: Race,

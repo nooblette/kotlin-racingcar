@@ -1,7 +1,7 @@
-package racingcar.race
+package racingcar.domain.race
 
-import racingcar.car.Cars
-import racingcar.randomnumber.RandomNumbers
+import racingcar.domain.car.Cars
+import racingcar.domain.randomnumber.RandomNumbers
 
 class Race(
     val cars: Cars,

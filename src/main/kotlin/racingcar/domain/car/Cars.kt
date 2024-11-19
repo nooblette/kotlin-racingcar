@@ -1,4 +1,4 @@
-package racingcar.car
+package racingcar.domain.car
 
 data class Cars(
     private val carCount: Int,

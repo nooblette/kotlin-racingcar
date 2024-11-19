@@ -1,11 +1,11 @@
-package racingcar
+package racingcar.domain
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import racingcar.car.Car
-import racingcar.car.Cars
-import racingcar.race.Race
-import racingcar.randomnumber.RandomNumbers
+import racingcar.domain.car.Car
+import racingcar.domain.car.Cars
+import racingcar.domain.race.Race
+import racingcar.domain.randomnumber.RandomNumbers
 
 class RaceTest {
     private var defaultDistance = 2

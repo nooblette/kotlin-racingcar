@@ -1,10 +1,10 @@
 package racingcar.client
 
-import racingcar.car.Car
-import racingcar.car.Cars
-import racingcar.race.Race
-import racingcar.randomnumber.RandomNumbers
-import racingcar.service.RaceService
+import racingcar.domain.car.Car
+import racingcar.domain.car.Cars
+import racingcar.domain.race.Race
+import racingcar.domain.randomnumber.RandomNumbers
+import racingcar.domain.service.RaceService
 import racingcar.view.InputView
 import racingcar.view.ResultView
 
