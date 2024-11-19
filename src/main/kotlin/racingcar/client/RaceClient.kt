@@ -25,7 +25,7 @@ class RaceClient {
 
         // 경주 결과 중 우승자를 찾는다.
         ResultView.printWinner(
-            raceResult
+            raceResult.cars
                 .getWinners()
                 .list
                 .joinToString { it.name },

@@ -40,16 +40,4 @@ class RaceTest {
             assertThat(result.list[i].distance).isEqualTo(expectedDistance)
         }
     }
-
-    @Test
-    fun `우승자 조회 로직을 테스트한다`() {
-        // 이름이 a인 자동차가 최종 우승을 한 Race 객체 생성
-        val race = Race(Cars(List(carCount) { Car(distance = defaultDistance) } + getTestWinner()))
-
-        // 우승자가 a 자동차가 맞는지 검증
-        assertThat(race.getWinners())
-            .isEqualTo(Cars(list = getTestWinner()))
-    }
-
-    private fun getTestWinner(): List<Car> = listOf(Car(name = "a", distance = defaultDistance + 2))
 }
