@@ -1,6 +1,6 @@
 package racingcar.car
 
-class Cars(
+data class Cars(
     private val carCount: Int,
     val list: List<Car> = List(carCount) { Car() },
 ) {
