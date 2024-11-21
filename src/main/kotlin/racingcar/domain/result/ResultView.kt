@@ -1,4 +1,4 @@
-package racingcar.view
+package racingcar.domain.result
 
 import racingcar.domain.car.Cars
 

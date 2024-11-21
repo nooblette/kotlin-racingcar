@@ -26,7 +26,7 @@ class RaceServiceTest {
                 )
             }
 
-        val raceResult = raceService.execute(tryTime = tryTime, onResult = { }, randomNumbers = randomNumbers)
+        val raceResult = raceService.execute(tryTime = tryTime, randomNumbers = randomNumbers)
 
         // 경기 결과 검증
         assertThat(raceResult.cars.list)
