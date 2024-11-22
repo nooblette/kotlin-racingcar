@@ -1,12 +1,12 @@
 package racingcar.client
 
-import racingcar.car.Car
-import racingcar.car.Cars
-import racingcar.race.Race
-import racingcar.randomnumber.RandomNumbers
-import racingcar.service.RaceService
+import racingcar.domain.car.Car
+import racingcar.domain.car.Cars
+import racingcar.domain.race.Race
+import racingcar.domain.randomnumber.RandomNumbers
+import racingcar.domain.result.ResultView
+import racingcar.domain.service.RaceService
 import racingcar.view.InputView
-import racingcar.view.ResultView
 
 class RaceClient {
     fun startRace() {
@@ -25,7 +25,7 @@ class RaceClient {
 
         // 경주 결과 중 우승자를 찾는다.
         ResultView.printWinner(
-            raceResult
+            raceResult.cars
                 .getWinners()
                 .list
                 .joinToString { it.name },
@@ -44,9 +44,9 @@ class RaceClient {
     private fun executeRace(
         tryTime: Int,
         carCount: Int,
-        execute: (Int, (Cars) -> Unit, List<RandomNumbers>) -> Race,
+        execute: (Int, List<RandomNumbers>) -> Race,
     ): Race {
         ResultView.printStart()
-        return execute(tryTime, ResultView::printResult, List(tryTime) { RandomNumbers(carCount) })
+        return execute(tryTime, List(tryTime) { RandomNumbers(carCount) })
     }
 }

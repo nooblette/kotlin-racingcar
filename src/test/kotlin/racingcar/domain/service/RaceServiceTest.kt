@@ -1,11 +1,11 @@
-package racingcar.service
+package racingcar.domain.service
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import racingcar.car.Car
-import racingcar.car.Cars
-import racingcar.race.Race
-import racingcar.randomnumber.RandomNumbers
+import racingcar.domain.car.Car
+import racingcar.domain.car.Cars
+import racingcar.domain.race.Race
+import racingcar.domain.randomnumber.RandomNumbers
 
 class RaceServiceTest {
     @Test
@@ -26,7 +26,7 @@ class RaceServiceTest {
                 )
             }
 
-        val raceResult = raceService.execute(tryTime = tryTime, onResult = { }, randomNumbers = randomNumbers)
+        val raceResult = raceService.execute(tryTime = tryTime, randomNumbers = randomNumbers)
 
         // 경기 결과 검증
         assertThat(raceResult.cars.list)

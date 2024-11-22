@@ -1,6 +1,6 @@
-package racingcar.view
+package racingcar.domain.result
 
-import racingcar.car.Cars
+import racingcar.domain.car.Cars
 
 object ResultView {
     private const val PRINT_EXPRESSION = "-"

@@ -1,4 +1,4 @@
-package racingcar.car
+package racingcar.domain.car
 
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
@@ -14,7 +14,7 @@ class CarTest {
 
     @Test
     fun `자동차 이름은 5자를 초과하는 경우 예외를 던진다`() {
-        assertThatThrownBy { Car(name = "testName") }
+        assertThatThrownBy { Car(name = "test12") }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 
